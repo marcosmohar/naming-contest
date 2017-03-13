@@ -5,8 +5,12 @@ import express from 'express';
 
 const server = express();
 
+server.set('view engine', 'ejs');
+
 server.get('/', (req,res) => {
-  res.send('Hello Express');
+  res.render('index', {
+    content: 'Hello content rendered through EJS'
+  });
 });
 
 server.use('/api', apiRouter);
